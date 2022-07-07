@@ -1,0 +1,27 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "TO-DO list ",
+  "main": "index.js",
+  "dependencies": {
+    "accepts": "^1.3.8",
+    "ansi-styles": "^4.3.0",
+    "array-flatten": "^1.1.1",
+    "async": "^3.2.3",
+    "balanced-match": "^1.0.2",
+    "base64-js": "^1.5.1",
+    "body-parser": "^1.20.0",
+    "brace-expansion": "^1.1.11",
+    "bson": "^4.6.4",
+    "buffer": "^5.7.1",
+    "bytes": "^3.1.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pranav Chaudhary",
+  "license": "ISC"
+}

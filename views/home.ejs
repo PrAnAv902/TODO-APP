@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>TODO App</title>
+         <!--Using this online website called "fontawesome.com" for easily accessing cool icons inside my website where ever needed-->
+        <script src="https://kit.fontawesome.com/25b3610e69.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>  
+        <!--Complete todo app contained inside this div--> 
+        <div id="to-do">
+            <!--Heading div the heading "TODO app" is displayed through here-->
+            <div id="heading">
+                  <b>TODO App</b>
+                   <hr>
+            </div>
+             <!--This is the div for description taken from the user using a input="text" tag-->
+            <div ID="desc">
+               &nbsp; &nbsp; <b>DESCRIPTION</b>
+                <!--This is the first form created for taking input from user and storing it inside our database-->
+               <form id="form1" action="/create-task" method="POST">
+                &nbsp; &nbsp; <input type="text" name="activity" placeholder="What do you need to do?" required>
+                <hr>
+            </div>
+             <!--Div for getting the catogery from user ex- personal,work,school etc.. -->
+            <div id="category">
+            
+                <table>
+                    <tr>
+                        <td>
+                            &nbsp; &nbsp;<b>CATEGORY</b>
+                                 <br>
+                            &nbsp; 
+                            <select name="category_type" id="types" required>
+                                <option value="Personal">Personal</option>
+                                <option value="Work">Work</option>
+                                <option value="School">School</option>
+                                <option value="Cleaning">Cleaning</option>
+                                <option value="Others">Other</option>
+                              </select>
+                        </td>
+                        <td >
+                            &nbsp; &nbsp;<b>DUE DATE</b>
+                            <br>
+                            &nbsp; &nbsp;<input type="date" id="date" name="date" required>
+                        </td> 
+                    </tr>
+                </table> 
+              <hr>
+            </div>
+               <!--Both buttons "add task" & "delete tasks" are inside this div-->
+            <div id="buttons">
+                <button type="submit" id="button1"><i class="fa-solid fa-plus"></i> &nbsp; ADD TASK</button>
+                 </form>
+                  <!--2nd Form created for sending a object of tasks through there unique ids to the particular route for deletion-->
+                 <form id="form2" action="/delete-task" method="GET">
+                 <button type="submit" id="button2"><i class="fa-solid fa-trash-can"></i>  &nbsp;DELETE TASKS</button>
+                
+                <hr>
+            </div>
+          <!--Final div where the user entered data will be displayed if there is any-->
+        <div id="data">
+            <% for(let i of contact_list){ %>
+                 <!--using this table to display our data entered by user in a systematic and clean format-->
+                <table >
+                    <tr>
+                        <td style="width:1%"> 
+                           <input type="checkbox" id="ta" name="<%= i._id %>" >
+                        </td>
+                        <td style="width:77%">
+                            <xs><%= i.description %> </xs>
+                            <br>
+                           
+                            <i class="fa-solid fa-calendar-days"></i> <%= i.date.getDate()%>/<%= i.date.getMonth()%>/<%= i.date.getFullYear()%>
+                           
+                        </td style="width:18%">
+                        <td>
+                             <!--To show different colours for different catogery selected-->
+                             <%if(i.category ==="Personal"){%>
+                             <xr style="background-color: antiquewhite"><b><%= i.category %></b></xr>
+                             <%} %>
+                             <%if(i.category ==="Work"){%>
+                             <xr style="background-color:rosybrown"><b><%= i.category %></b></xr>
+                             <%} %>
+                             <%if(i.category ==="School"){%>
+                             <xr style="background-color: yellowgreen"><b><%= i.category %></b></xr>
+                             <%} %>
+                             <%if(i.category ==="Cleaning"){%>
+                             <xr style="background-color:plum"><b><%= i.category %></b></xr>
+                             <%} %>
+                             <%if(i.category ==="Others"){%>
+                             <xr style="background-color:salmon"><b><%= i.category %></b></xr>
+                             <%} %>
+                                
+                        </td>
+                    </tr>
+                </table>
+               
+            
+            <hr>
+            <%} %>
+        </form>
+        </div>
+        </div>
+        
+     
+        <script type="text/javascript" src="/js/home.js"></script>
+    </body>
+</html>
